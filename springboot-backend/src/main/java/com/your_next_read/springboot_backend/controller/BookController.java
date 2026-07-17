@@ -2,6 +2,7 @@ package com.your_next_read.springboot_backend.controller;
 
 import com.your_next_read.springboot_backend.model.Book;
 import com.your_next_read.springboot_backend.repository.BookRepository;
+import com.your_next_read.springboot_backend.service.BookImportService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.List;
 public class BookController {
 
     private final BookRepository bookRepository;
+    private final BookImportService bookImportService;
 
-    public BookController(BookRepository bookRepository) {
+    public BookController(BookRepository bookRepository, BookImportService bookImportService) {
         this.bookRepository = bookRepository;
+        this.bookImportService = bookImportService;
     }
 
     @GetMapping
@@ -30,5 +33,10 @@ public class BookController {
     @PostMapping
     public Book createBook(@RequestBody Book book) {
         return bookRepository.save(book);
+    }
+
+    @PostMapping("/import")
+    public List<Book> importBooks(@RequestParam String query, @RequestParam(defaultValue = "10") int limit) {
+        return bookImportService.importBooksByQuery(query, limit);
     }
 }
