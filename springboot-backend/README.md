@@ -16,6 +16,10 @@ The part that does the actual thinking.
 
 Boots up at `http://localhost:8080` 🎉
 
+## 🌐 CORS
+
+Configured to allow requests from `http://localhost:5173` (the Vue dev server) — see `WebConfig.java`. If you ever change the frontend's port, update the allowed origin there too.
+
 ## 📖 API docs
 
 Swagger UI, for poking around without writing curl commands:
