@@ -26,14 +26,17 @@ watch(() => props.refreshKey, load);
 
 <template>
   <section>
-    <h2>📋 Your TBR list</h2>
-    <p v-if="loading">Loading...</p>
-    <p v-else-if="!books.length">Nothing here yet — search for books above and add some!</p>
+    <span class="title">Reading queue</span>
+    <h2>Your TBR shelf</h2>
+    <p v-if="loading">Loading…</p>
+    <p v-else-if="!books.length" class="empty">Empty shelf. Search above and add something.</p>
     <ul v-else>
       <li v-for="book in books" :key="book.id">
-        {{ book.title }} by {{ book.author }}
+        <span>{{ book.title }} <span class="book-meta">— {{ book.author }}</span></span>
         <button @click="handleRemove(book.id)">Remove</button>
       </li>
     </ul>
   </section>
 </template>
+
+<style lang="scss" src="./TbrList.scss" scoped></style>

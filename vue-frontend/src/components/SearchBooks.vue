@@ -31,20 +31,22 @@ async function handleAdd(bookId: number) {
 
 <template>
   <section>
-    <h2>🔍 Search for books</h2>
+    <span class="title">Catalog search</span>
+    <h2>Find something new</h2>
     <form @submit.prevent="handleSearch">
-      <input v-model="query" placeholder="e.g. Dune, Harry Potter..." />
-      <button type="submit" :disabled="loading">Search</button>
+      <input v-model="query" placeholder="Try “dune” or “murakami”..." />
+      <button type="submit" :disabled="loading">{{ loading ? 'Searching…' : 'Search' }}</button>
     </form>
 
-    <p v-if="loading">Searching...</p>
-    <p v-if="error">{{ error }}</p>
+    <p v-if="error" class="error">{{ error }}</p>
 
     <ul v-if="results.length">
       <li v-for="book in results" :key="book.id">
-        {{ book.title }} by {{ book.author }}
-        <button @click="handleAdd(book.id)">+ Add to TBR</button>
+        <span>{{ book.title }} <span class="book-meta">— {{ book.author }}</span></span>
+        <button @click="handleAdd(book.id)">+ Add</button>
       </li>
     </ul>
   </section>
 </template>
+
+<style lang="scss" src="./SearchBooks.scss" scoped></style>

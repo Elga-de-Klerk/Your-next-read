@@ -1,0 +1,55 @@
+.pocket {
+  overflow: hidden;
+}
+
+button {
+  margin-bottom: 1.25rem;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 1.25rem 1.5rem;
+  transform: translateY(-16px);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  position: relative;
+
+  &--out {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__stamp {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wine);
+    border: 1px solid var(--wine);
+    padding: 0.15rem 0.4rem;
+    transform: rotate(3deg);
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+    padding-right: 5.5rem;
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 0.75rem;
+  }
+}
+
+.error {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--wine);
+}
