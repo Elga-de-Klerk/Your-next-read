@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import BookItem from "../../components/BookItem/BookItem.vue";
 import type { Book } from '../../types/Book';
-import { fetchTbrList, removeFromTbr } from '../../services/bookService';
+import {fetchTbrList, removeFromTbr} from "../../services/bookService.ts";
 
 const books = ref<Book[]>([]);
 const loading = ref(true);
@@ -27,10 +28,13 @@ onMounted(load);
     <p v-if="loading">Loading…</p>
     <p v-else-if="!books.length" class="empty">Empty shelf. Search above and add something.</p>
     <ul v-else>
-      <li v-for="book in books" :key="book.id">
-        <span>{{ book.title }} <span class="book-meta">— {{ book.author }}</span></span>
-        <button @click="handleRemove(book.id)">Remove</button>
-      </li>
+      <BookItem
+          v-for="book in books"
+          :key="book.id"
+          :book="book"
+          :buttonText="'Remove'"
+          @onClick="handleRemove(book.id)"
+      />
     </ul>
   </section>
 </template>

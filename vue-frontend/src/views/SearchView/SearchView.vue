@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import type { Book } from '../../types/Book.ts';
 import { searchAndImportBooks, addToTbr } from '../../services/bookService.ts';
+import BookItem from "../../components/BookItem/BookItem.vue";
 
 const emit = defineEmits<{ tbrUpdated: [] }>();
 
@@ -41,10 +42,12 @@ async function handleAdd(bookId: number) {
     <p v-if="error" class="error">{{ error }}</p>
 
     <ul v-if="results.length">
-      <li v-for="book in results" :key="book.id">
-        <span>{{ book.title }} <span class="book-meta">— {{ book.author }}</span></span>
-        <button @click="handleAdd(book.id)">+ Add</button>
-      </li>
+      <BookItem
+          v-for="book in results"
+          :key="book.id"
+          :book="book"
+          :buttonText="'Add'"
+          @onClick="handleAdd(book.id)" />
     </ul>
   </section>
 </template>
