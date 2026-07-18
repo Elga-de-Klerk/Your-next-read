@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByTags_NameIn(List<String> tagNames);
+    List<Book> findByOnTbrTrue();
 }
