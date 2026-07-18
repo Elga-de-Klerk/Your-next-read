@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { Book } from '../types/Book';
-import { fetchNextRead } from '../services/bookService';
+import type { Book } from '../../types/Book.ts';
+import { fetchNextRead } from '../../services/bookService.ts';
 
 const book = ref<Book | null>(null);
 const error = ref<string | null>(null);
@@ -43,4 +43,4 @@ async function handleFindNextRead() {
   </section>
 </template>
 
-<style lang="scss" src="./NextRead.scss" scoped></style>
+<style lang="scss" src="./NextReadView.scss" scoped></style>

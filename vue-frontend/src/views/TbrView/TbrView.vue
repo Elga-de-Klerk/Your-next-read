@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
-import type { Book } from '../types/Book';
-import { fetchTbrList, removeFromTbr } from '../services/bookService';
-
-const props = defineProps<{ refreshKey: number }>();
-const emit = defineEmits<{ tbrUpdated: [] }>();
+import { ref, onMounted } from 'vue';
+import type { Book } from '../../types/Book';
+import { fetchTbrList, removeFromTbr } from '../../services/bookService';
 
 const books = ref<Book[]>([]);
 const loading = ref(true);
@@ -17,11 +14,10 @@ async function load() {
 
 async function handleRemove(bookId: number) {
   await removeFromTbr(bookId);
-  emit('tbrUpdated');
+  await load();
 }
 
 onMounted(load);
-watch(() => props.refreshKey, load);
 </script>
 
 <template>
@@ -39,4 +35,4 @@ watch(() => props.refreshKey, load);
   </section>
 </template>
 
-<style lang="scss" src="./TbrList.scss" scoped></style>
+<style lang="scss" src="./TbrView.scss" scoped></style>

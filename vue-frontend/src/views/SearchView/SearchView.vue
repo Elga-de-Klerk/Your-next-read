@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { Book } from '../types/Book';
-import { searchAndImportBooks, addToTbr } from '../services/bookService';
+import type { Book } from '../../types/Book.ts';
+import { searchAndImportBooks, addToTbr } from '../../services/bookService.ts';
 
 const emit = defineEmits<{ tbrUpdated: [] }>();
 
@@ -49,4 +49,4 @@ async function handleAdd(bookId: number) {
   </section>
 </template>
 
-<style lang="scss" src="./SearchBooks.scss" scoped></style>
+<style lang="scss" src="./SearchView.scss" scoped></style>
