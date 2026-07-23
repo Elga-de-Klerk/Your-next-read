@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { Book } from '../../types/Book.ts';
-import { searchAndImportBooks, addToTbr } from '../../services/bookService.ts';
+import { searchBooks, addToTbr } from '../../services/bookService';
+import type {BookSearchResult} from "../../types/BookSearchResult.ts";
 import BookItem from "../../components/BookItem/BookItem.vue";
 
-const emit = defineEmits<{ tbrUpdated: [] }>();
-
 const query = ref('');
-const results = ref<Book[]>([]);
+const results = ref<BookSearchResult[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
+const addedIds = ref<Set<string>>(new Set());
 
 async function handleSearch() {
   if (!query.value.trim()) return;
   loading.value = true;
   error.value = null;
   try {
-    results.value = await searchAndImportBooks(query.value);
+    results.value = await searchBooks(query.value);
   } catch (e) {
     error.value = e instanceof Error ? e.message : 'Search failed';
   } finally {
@@ -24,9 +23,11 @@ async function handleSearch() {
   }
 }
 
-async function handleAdd(bookId: number) {
-  await addToTbr(bookId);
-  emit('tbrUpdated');
+async function handleAdd(book: BookSearchResult) {
+  await addToTbr(book);
+  if (book.externalId) {
+    addedIds.value.add(book.externalId);
+  }
 }
 </script>
 
@@ -44,10 +45,10 @@ async function handleAdd(bookId: number) {
     <ul v-if="results.length">
       <BookItem
           v-for="book in results"
-          :key="book.id"
+          :key="book.externalId ?? book.title"
           :book="book"
           :buttonText="'Add'"
-          @onClick="handleAdd(book.id)" />
+          @onClick="handleAdd(book)" />
     </ul>
   </section>
 </template>

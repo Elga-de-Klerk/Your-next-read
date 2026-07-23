@@ -1,24 +1,20 @@
 import type { Book } from '../types/Book';
+import type {BookSearchResult} from "../types/BookSearchResult.ts";
 
 const API_BASE = 'http://localhost:8080/api';
 
-export async function fetchBooks(): Promise<Book[]> {
-    const response = await fetch(`${API_BASE}/books`);
-    if (!response.ok) throw new Error(`Failed to fetch books: ${response.status}`);
-    return response.json();
-}
-
-export async function searchAndImportBooks(query: string, limit = 10): Promise<Book[]> {
-    const response = await fetch(
-        `${API_BASE}/books/import?query=${encodeURIComponent(query)}&limit=${limit}`,
-        { method: 'POST' }
-    );
+export async function searchBooks(query: string, limit = 10): Promise<BookSearchResult[]> {
+    const response = await fetch(`${API_BASE}/books/search?query=${encodeURIComponent(query)}&limit=${limit}`);
     if (!response.ok) throw new Error(`Search failed: ${response.status}`);
     return response.json();
 }
 
-export async function addToTbr(bookId: number): Promise<Book> {
-    const response = await fetch(`${API_BASE}/tbr/${bookId}`, { method: 'POST' });
+export async function addToTbr(book: BookSearchResult): Promise<Book> {
+    const response = await fetch(`${API_BASE}/tbr`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(book),
+    });
     if (!response.ok) throw new Error(`Failed to add to TBR: ${response.status}`);
     return response.json();
 }
