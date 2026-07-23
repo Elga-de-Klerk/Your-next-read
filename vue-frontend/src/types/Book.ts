@@ -1,10 +1,12 @@
 export interface Book {
-    id: number;
+    id: number | null;
+    externalId: string | null;
     title: string;
     author: string;
     description: string | null;
     pageCount: number | null;
     publishedYear: number | null;
     coverImageUrl: string | null;
-    tags: { id: number; name: string }[];
+    onTbr: boolean;
+    tags: string[];
 }

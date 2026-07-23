@@ -30,10 +30,10 @@ onMounted(load);
     <ul v-else>
       <BookItem
           v-for="book in books"
-          :key="book.id"
+          :key="book.id!"
           :book="book"
           :buttonText="'Remove'"
-          @onClick="handleRemove(book.id)"
+          @onClick="handleRemove(book.id!)"
       />
     </ul>
   </section>
