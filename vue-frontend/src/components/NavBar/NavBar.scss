@@ -1,20 +1,46 @@
-nav {
-  display: flex;
-  gap: 1.5rem;
+@use "../../style.scss";
 
-  a {
+.sidebar {
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: var(--side-menu-open-width);
+
+  &.collapsed {
+    width: var(--side-menu-closed-width);
+
+    .label {
+      display: none;
+    }
+  }
+
+  .menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-item {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
+    font-size: 16px;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--ink);
-    padding-bottom: 0.3rem;
-    border-bottom: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 1rem;
 
     &.router-link-active {
       color: var(--wine);
-      border-bottom-color: var(--wine);
+    }
+
+    &.nav-menu-button {
+      background: none;
+      border: none;
+      cursor: pointer;
     }
   }
 }

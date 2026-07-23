@@ -7,6 +7,9 @@
   --wine: #7d2a38;
   --gold: #a6842a;
   --line: #cfc3a0;
+
+  --side-menu-open-width: 200px;
+  --side-menu-closed-width: 40px;
 }
 
 * {
@@ -20,12 +23,6 @@ body {
   background-size: 100% 2.1rem;
   color: var(--ink);
   font-family: 'Libre Franklin', sans-serif;
-}
-
-#app {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 5rem;
 }
 
 h1, h2, h3 {
@@ -48,14 +45,6 @@ h2 {
   border-bottom: 2px solid var(--ink);
   padding-bottom: 0.4rem;
   margin-bottom: 1rem;
-}
-
-.title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
 }
 
 section {
@@ -83,33 +72,33 @@ input {
   }
 }
 
-button {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: var(--ink);
-  color: var(--card);
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-
-  &:hover:not(:disabled) {
-    background: var(--wine);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: default;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
-  }
-}
+//button {
+//  font-family: 'IBM Plex Mono', monospace;
+//  font-size: 0.8rem;
+//  letter-spacing: 0.04em;
+//  text-transform: uppercase;
+//  background: var(--ink);
+//  color: var(--card);
+//  border: none;
+//  padding: 0.6rem 1rem;
+//  border-radius: 2px;
+//  cursor: pointer;
+//  transition: background 0.15s ease;
+//
+//  &:hover:not(:disabled) {
+//    background: var(--wine);
+//  }
+//
+//  &:disabled {
+//    opacity: 0.5;
+//    cursor: default;
+//  }
+//
+//  &:focus-visible {
+//    outline: 2px solid var(--gold);
+//    outline-offset: 2px;
+//  }
+//}
 
 ul {
   list-style: none;
@@ -119,15 +108,25 @@ ul {
 
 li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0.7rem 0;
-  border-bottom: 1px dashed var(--line);
   font-size: 0.95rem;
 
   &:last-child {
     border-bottom: none;
   }
+}
+
+main {
+  margin-left: var(--side-menu-open-width);
+}
+
+.title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 .book-meta {
