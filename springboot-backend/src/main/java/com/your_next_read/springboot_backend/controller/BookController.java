@@ -1,5 +1,7 @@
 package com.your_next_read.springboot_backend.controller;
 
+import com.your_next_read.springboot_backend.dto.BookDetails;
+import com.your_next_read.springboot_backend.dto.BookSearchResult;
 import com.your_next_read.springboot_backend.model.Book;
 import com.your_next_read.springboot_backend.repository.BookRepository;
 import com.your_next_read.springboot_backend.service.BookImportService;
@@ -35,8 +37,13 @@ public class BookController {
         return bookRepository.save(book);
     }
 
-    @PostMapping("/import")
-    public List<Book> importBooks(@RequestParam String query, @RequestParam(defaultValue = "10") int limit) {
-        return bookImportService.importBooksByQuery(query, limit);
+    @GetMapping("/search")
+    public List<Book> searchBooks(@RequestParam String query, @RequestParam(defaultValue = "10") int limit) {
+        return bookImportService.search(query, limit);
+    }
+
+    @GetMapping("/details")
+    public BookDetails getDetails(@RequestParam String externalId) {
+        return bookImportService.fetchDetails(externalId);
     }
 }

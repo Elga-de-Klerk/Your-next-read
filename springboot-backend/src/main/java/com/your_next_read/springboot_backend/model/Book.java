@@ -21,29 +21,27 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
+    private String externalId;
+
     @Column(nullable = false)
     private String title;
 
     @Column(nullable = false)
     private String author;
 
-    @Column(nullable = false)
-    private boolean onTbr = false;
-
     @Column(length = 2000)
     private String description;
 
     private Integer pageCount;
-
     private Integer publishedYear;
-
     private String coverImageUrl;
 
-    @ManyToMany
-    @JoinTable(
-            name = "book_tags",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id")
-    )
-    private Set<Tag> tags = new HashSet<>();
+    @Column(nullable = false)
+    private boolean onTbr = false;
+
+    @ElementCollection
+    @CollectionTable(name = "book_tags", joinColumns = @JoinColumn(name = "book_id"))
+    @Column(name = "tag_name")
+    private Set<String> tags = new HashSet<>();
 }
