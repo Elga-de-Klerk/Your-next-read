@@ -14,20 +14,26 @@ function toggleSidebar() {
   <aside :class="{ collapsed: isSidebarOpen }" class="sidebar">
     <nav class="menu">
       <ul>
-        <li class="menu-item">
-          <span class="material-symbols-outlined">search</span>
-          <span class="label">Search</span>
-        </li>
+        <router-link to="/search">
+          <li class="menu-item">
+            <span class="material-symbols-outlined">search</span>
+            <span class="label">Search</span>
+          </li>
+        </router-link>
 
-        <li class="menu-item">
-          <span class="material-symbols-outlined">library_books</span>
-          <span class="label">My Shelf</span>
-        </li>
+        <router-link to="/tbr">
+          <li class="menu-item">
+            <span class="material-symbols-outlined">library_books</span>
+            <span class="label">My Shelf</span>
+          </li>
+        </router-link>
 
-        <li class="menu-item">
-          <span class="material-symbols-outlined">auto_awesome</span>
-          <span class="label">Pick for Me</span>
-        </li>
+        <router-link to="/next-read">
+          <li class="menu-item">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            <span class="label">Pick for Me</span>
+          </li>
+        </router-link>
       </ul>
     </nav>
 
