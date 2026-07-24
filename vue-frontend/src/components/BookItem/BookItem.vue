@@ -35,7 +35,8 @@ async function handleRemove() {
   <div class="book-item">
     <router-link :to="{ name: 'book-detail', query }">
 
-      <img class="cover" alt="book cover" :src="book.coverImageUrl" />
+      <img v-if="book.coverImageUrl" class="cover" alt="book cover" :src="book.coverImageUrl" />
+      <span v-else class="cover no-result">No image found</span>
 
       <div class="details">
         <div class="book-data">
