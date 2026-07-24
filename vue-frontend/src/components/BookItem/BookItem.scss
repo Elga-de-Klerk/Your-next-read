@@ -4,18 +4,23 @@
   a {
     display: flex;
     text-decoration: none;
+    color: var(--ink);
 
     .cover {
       width: 150px;
       height: 250px;
       object-fit: cover;
+
+      &.no-result {
+        align-content: center;
+        text-align: center;
+      }
     }
 
     .details {
       padding: 10px;
       display: flex;
       flex-direction: column;
-      color: var(--ink);
 
       .book-data {
         flex: 1;
