@@ -1,14 +1,10 @@
 @use "./style.scss";
 
-section {
-  background: var(--card);
-  padding: 1.75rem;
-}
-
 main {
-  margin-left: var(--side-menu-open-width);
+  width: calc((var(--columns) * var(--card-width)) + ((var(--columns) - 1) * var(--gap)));
+  margin: auto;
 
-  &.expanded {
-    margin-left: var(--side-menu-closed-width);
+  header {
+    margin: 10px;
   }
 }

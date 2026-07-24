@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
-  --paper: #ede4ce;
-  --card: #f8f2e4;
-  --ink: #26332b;
-  --wine: #7d2a38;
-  --gold: #a6842a;
-  --line: #cfc3a0;
+  --cotton-cloud: #FAF9EF;
+  --orchid: #F0A9A8;
+  --green-fields: #D2DCA7;
+  --ink: #26332B;
+
+  --font-family: "Inter", sans-serif;
 
   --side-menu-open-width: 200px;
   --side-menu-closed-width: 56px;
+
+  --columns: 3;
+  --gap: 10px;
+  --card-width: 350px;
 }
 
 * {
@@ -16,14 +22,13 @@
 
 body {
   margin: 0;
-  background-color: var(--paper);
+  background-color: var(--cotton-cloud);
   background-size: 100% 2.1rem;
+  font-family: var(--font-family), sans-serif;
   color: var(--ink);
-  font-family: 'Libre Franklin', sans-serif;
 }
 
 h1, h2, h3 {
-  font-family: 'Fraunces', serif;
   font-weight: 600;
   margin: 0 0 0.5rem;
 }
@@ -48,4 +53,18 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+button {
+  border: none;
+  background-color: var(--orchid);
+  color: var(--cotton-cloud);
+  border-radius: 6px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), auto);
+  grid-gap: var(--gap);
 }

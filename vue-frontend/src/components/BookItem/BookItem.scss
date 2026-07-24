@@ -1,0 +1,36 @@
+@use "../../style.scss";
+
+.book-item {
+  a {
+    display: flex;
+    text-decoration: none;
+
+    .cover {
+      width: 150px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .details {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      color: var(--ink);
+
+      .book-data {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-weight: 700;
+        }
+      }
+
+      button {
+        width: 180px;
+        height: 30px;
+      }
+    }
+  }
+}

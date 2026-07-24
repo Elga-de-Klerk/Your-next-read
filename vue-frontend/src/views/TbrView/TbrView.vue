@@ -27,7 +27,7 @@ onMounted(load);
     <h2>Your TBR shelf</h2>
     <p v-if="loading">Loading…</p>
     <p v-else-if="!books.length" class="empty">Empty shelf. Search above and add something.</p>
-    <ul v-else>
+    <div class="grid" v-else>
       <BookItem
           v-for="book in books"
           :key="book.id!"
@@ -35,7 +35,7 @@ onMounted(load);
           :buttonText="'Remove'"
           @onClick="handleRemove(book.id!)"
       />
-    </ul>
+    </div>
   </section>
 </template>
 

@@ -10,8 +10,8 @@ const sidebarOpen = ref(true);
   <NavBar @sideBarOpen="open => sidebarOpen = open"/>
 
   <main :class="{ expanded: sidebarOpen }" >
-    <header class="shelf-nav">
-      <h1>📚 Your Next Read</h1>
+    <header class="header">
+      <h1>Your Next Read</h1>
     </header>
     <router-view />
   </main>

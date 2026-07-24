@@ -23,28 +23,27 @@
     a {
       text-decoration: none;
     }
+  }
 
-    .menu-item {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 16px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 12px;
-      padding: 1rem;
+  .menu-item {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 1rem;
 
-      &.router-link-active {
-        color: var(--wine);
-      }
+    &.router-link-active {
+      color: var(--wine);
+    }
 
-      &.nav-menu-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
+    &.nav-menu-button {
+      background: none;
+      border: none;
+      cursor: pointer;
     }
   }
 }

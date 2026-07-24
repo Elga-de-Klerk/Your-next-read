@@ -32,15 +32,28 @@ async function handleRemove() {
 </script>
 
 <template>
-  <li>
-    <router-link :to="{ name: 'book-detail', query }">{{ book.title }}</router-link>
-    <span class="book-meta">— {{ book.author }}</span>
+  <div class="book-item">
+    <router-link :to="{ name: 'book-detail', query }">
 
-    <button v-if="!book.onTbr" @click="handleAdd" :disabled="saving">
-      {{ saving ? 'Adding…' : '+ Add' }}
-    </button>
-    <button v-else @click="handleRemove" :disabled="saving">
-      {{ saving ? 'Removing…' : 'Remove' }}
-    </button>
-  </li>
+      <img class="cover" alt="book cover" :src="book.coverImageUrl" />
+
+      <div class="details">
+        <div class="book-data">
+          <span class="title">{{ book.title }}</span>
+          <span class="author">{{ book.author }}</span>
+        </div>
+
+        <button v-if="!book.onTbr" @click="handleAdd" :disabled="saving">
+          {{ saving ? 'Adding…' : '+ Add' }}
+        </button>
+        <button v-else @click="handleRemove" :disabled="saving">
+          {{ saving ? 'Removing…' : 'Remove' }}
+        </button>
+      </div>
+
+
+    </router-link>
+  </div>
 </template>
+
+<style lang="scss" src="./BookItem.scss" scoped></style>

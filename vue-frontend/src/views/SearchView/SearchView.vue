@@ -42,14 +42,14 @@ async function handleAdd(book: Book) {
 
     <p v-if="error" class="error">{{ error }}</p>
 
-    <ul v-if="results.length">
+    <div class="grid" v-if="results.length">
       <BookItem
           v-for="book in results"
           :key="book.externalId ?? book.title"
           :book="book"
           :buttonText="'Add'"
           @onClick="handleAdd(book)" />
-    </ul>
+    </div>
   </section>
 </template>
 

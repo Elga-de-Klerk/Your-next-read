@@ -35,7 +35,6 @@ async function handleFindNextRead() {
     <p v-if="error" class="error">{{ error }}</p>
 
     <div v-if="book" class="card" :class="{ 'card--out': revealed }">
-      <div class="card__stamp">Issued today</div>
       <h3>{{ book.title }}</h3>
       <p class="book-meta">{{ book.author }}<span v-if="book.publishedYear"> · {{ book.publishedYear }}</span></p>
       <p v-if="book.description" class="card__desc">{{ book.description }}</p>
