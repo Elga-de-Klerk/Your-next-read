@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { searchBooks, addToTbr } from '../../services/bookService';
-import type {BookSearchResult} from "../../types/BookSearchResult.ts";
 import BookItem from "../../components/BookItem/BookItem.vue";
+import type {Book} from "../../types/Book.ts";
 
 const query = ref('');
-const results = ref<BookSearchResult[]>([]);
+const results = ref<Book[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const addedIds = ref<Set<string>>(new Set());
@@ -23,7 +23,7 @@ async function handleSearch() {
   }
 }
 
-async function handleAdd(book: BookSearchResult) {
+async function handleAdd(book: Book) {
   await addToTbr(book);
   if (book.externalId) {
     addedIds.value.add(book.externalId);

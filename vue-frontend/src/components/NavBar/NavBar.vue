@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
+const emit = defineEmits<{ sideBarOpen: [boolean] }>()
 const isSidebarOpen = ref(true);
+
+function toggleSidebar() {
+  isSidebarOpen.value = !isSidebarOpen.value
+  emit("sideBarOpen", isSidebarOpen.value);
+}
 </script>
 
 <template>
@@ -25,7 +31,7 @@ const isSidebarOpen = ref(true);
       </ul>
     </nav>
 
-    <button class="menu-item nav-menu-button" @click="isSidebarOpen = !isSidebarOpen">
+    <button class="menu-item nav-menu-button" @click="toggleSidebar()">
       <span class="material-symbols-outlined">menu</span>
       <span class="label">Collapse</span>
     </button>
