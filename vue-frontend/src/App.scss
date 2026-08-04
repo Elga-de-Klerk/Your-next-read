@@ -1,6 +1,7 @@
+@use "./style.scss";
+
 main {
-  margin-left: 220px;
-  max-width: 720px;
+  margin-left: style.$side-menu-width;
   padding: 3rem 1.5rem 5rem;
 }
 

@@ -1,53 +1,80 @@
 @use "../../style.scss";
 
+$background-color: #3a5244;
+$text-color: #90b890;
+$active-color: #4e6b5a;
+$active-text-color: #f1ece4;
+
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  background: var(--card);
-  border-right: 1px solid var(--line);
-  z-index: 10;
-}
-
-.title {
-  padding: 1.5rem 1.25rem;
-
-  h1 {
-    font-size: 1.15rem;
-    margin: 0;
-  }
+  background: $background-color;
+  color: $text-color;
 }
 
 .menu ul {
   list-style: none;
   margin: 0;
-  padding: 0.5rem 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $text-color;
+
+    .icon {
+      width: 2em;
+      height: 2em;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.router-link-active {
+      color: $active-text-color;
+
+      .icon {
+        background-color: $active-color;
+        border-radius: .7em;
+      }
+    }
+  }
 }
 
-.menu-item a {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-left: 3px solid transparent;
-
-  &.router-link-active {
-    color: var(--wine);
-    border-left-color: var(--wine);
-    background: var(--paper);
+@media (min-width: 700px) {
+  .sidebar {
+    position: fixed;
+    width: style.$side-menu-width;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .material-symbols-outlined {
-    font-size: 1.3rem;
+  .title {
+    padding: 1.5rem 1.25rem;
+
+    h1 {
+      font-size: 19px;
+      margin: 0;
+    }
+  }
+
+  .menu {
+    padding: 1em;
+
+    ul {
+      padding: 0.5rem 0;
+
+      .menu-item a {
+        gap: 0.75rem;
+        padding: 0.75rem 1.25rem;
+        font-size: .8em;
+
+        &.router-link-active {
+          background-color: $active-color;
+          border-radius: 1.15em;
+        }
+      }
+    }
   }
 }
 
@@ -60,13 +87,9 @@
   .title {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     padding: 1rem 1.25rem;
-    background: var(--card);
-    border-bottom: 1px solid var(--line);
-    border-right: none;
-    z-index: 10;
+    background: $background-color;
 
     h1 {
       font-size: 1.1rem;
@@ -76,31 +99,21 @@
   .menu {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--card);
-    border-top: 1px solid var(--line);
-    z-index: 10;
+    width: 100%;
+    background: $background-color;
 
     ul {
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 0;
+      padding: 0;
     }
 
     .menu-item a {
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.25rem;
       padding: 0.4rem 0.75rem;
-      border-left: none;
-
-      &.router-link-active {
-        background: none;
-      }
-
-      .label {
-        font-size: 0.65rem;
-      }
+      font-size: .65em;
+      text-transform: uppercase;
     }
   }
 }

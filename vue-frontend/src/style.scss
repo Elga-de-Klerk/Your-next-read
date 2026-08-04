@@ -1,20 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
-:root {
-  --cotton-cloud: #FAF9EF;
-  --orchid: #F0A9A8;
-  --green-fields: #D2DCA7;
-  --ink: #26332B;
-
-  --font-family: "Inter", sans-serif;
-
-  --side-menu-open-width: 200px;
-  --side-menu-closed-width: 56px;
-
-  --columns: 3;
-  --gap: 10px;
-  --card-width: 350px;
-}
+$side-menu-width: 220px;
 
 * {
   box-sizing: border-box;
@@ -22,49 +8,9 @@
 
 body {
   margin: 0;
-  background-color: var(--cotton-cloud);
-  background-size: 100% 2.1rem;
-  font-family: var(--font-family), sans-serif;
-  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
 }
 
 h1, h2, h3 {
-  font-weight: 600;
-  margin: 0 0 0.5rem;
-}
-
-h1 {
-  font-size: 2.6rem;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: 1.15rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--wine);
-  font-weight: 700;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 0.4rem;
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-button {
-  border: none;
-  background-color: var(--orchid);
-  color: var(--cotton-cloud);
-  border-radius: 6px;
-}
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(var(--columns), auto);
-  grid-gap: var(--gap);
+  font-family: 'Lora', Georgia, serif;
 }
