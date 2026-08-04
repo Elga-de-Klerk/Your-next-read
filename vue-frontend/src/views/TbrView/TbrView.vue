@@ -23,8 +23,9 @@ onMounted(load);
 
 <template>
   <section>
-    <span class="title">Reading queue</span>
+    <h3>Reading queue</h3>
     <h2>Your TBR shelf</h2>
+    
     <p v-if="loading">Loading…</p>
     <p v-else-if="!books.length" class="empty">Empty shelf. Search above and add something.</p>
     <div class="grid" v-else>

@@ -33,14 +33,20 @@ async function handleAdd(book: Book) {
 
 <template>
   <section>
-    <span class="title">Catalog search</span>
-    <h2>Find something new</h2>
-    <form @submit.prevent="handleSearch">
-      <input v-model="query" placeholder="Try “dune” or “murakami”..." />
-      <button type="submit" :disabled="loading">{{ loading ? 'Searching…' : 'Search' }}</button>
+    <h3>The Catalogue</h3>
+    <h2>Find a story <br/><em>to get lost in</em></h2>
+
+    <form @submit.prevent="handleSearch" class="search-form">
+      <button type="submit" class="search-icon" :disabled="loading" aria-label="Search">
+        <span class="material-symbols-outlined">
+          {{ loading ? 'hourglass_empty' : 'search' }}
+        </span>
+      </button>
+      <input v-model="query" placeholder="Try “Dune” or “Murakami”..." />
     </form>
 
-    <p v-if="error" class="error">{{ error }}</p>
+    <p v-if="!error && !results.length">Nothing is here yet, use the input to find books</p>
+    <p v-if="error" class="error">Something went wrong, try again later</p>
 
     <div class="grid" v-if="results.length">
       <BookItem

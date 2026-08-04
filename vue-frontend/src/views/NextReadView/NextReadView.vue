@@ -26,7 +26,7 @@ async function handleFindNextRead() {
 
 <template>
   <section class="pocket">
-    <span class="title">Random draw</span>
+    <h3>Random draw</h3>
     <h2>Find my next read</h2>
     <button @click="handleFindNextRead" :disabled="loading">
       {{ loading ? 'Shuffling…' : 'Pick for me' }}

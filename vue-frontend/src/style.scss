@@ -10,8 +10,28 @@ body {
   margin: 0;
   font-family: 'DM Sans', sans-serif;
   background-color: #f1ece3;
+  color: #6b6155;
 }
 
 h1, h2, h3 {
   font-family: 'Lora', Georgia, serif;
+  font-weight: 100;
+  color: #2f2c26;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: .2em;
+
+  em {
+    color: #6f8c73
+  }
+}
+
+h3 {
+  text-transform: uppercase;
+  color: #708c73;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: .7em;
 }

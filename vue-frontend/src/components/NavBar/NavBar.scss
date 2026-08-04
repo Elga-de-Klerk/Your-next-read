@@ -123,6 +123,7 @@ $active-text-color: #f1ece4;
     width: 100%;
     padding: 1rem 1.25rem;
     background: $background-color;
+    z-index: 1;
 
     p { display: none }
 
@@ -136,6 +137,7 @@ $active-text-color: #f1ece4;
     bottom: 0;
     width: 100%;
     background: $background-color;
+    z-index: 1;
 
     p { display: none }
 
