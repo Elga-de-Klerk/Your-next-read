@@ -5,6 +5,7 @@
     </div>
 
     <nav class="menu">
+      <p>Wander gently</p>
       <ul>
         <li class="menu-item">
           <router-link to="/search">
