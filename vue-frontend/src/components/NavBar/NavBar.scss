@@ -10,6 +10,31 @@ $active-text-color: #f1ece4;
   color: $text-color;
 }
 
+.title {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+
+  h1 {
+    color: #def0d8;
+  }
+
+  .logo {
+    background-color: #6a9e71;
+    color: #f0ebe3;
+    border-radius: 1em;
+  }
+}
+
+.icon {
+  width: 2em;
+  height: 2em;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu ul {
   list-style: none;
   margin: 0;
@@ -19,15 +44,6 @@ $active-text-color: #f1ece4;
     align-items: center;
     text-decoration: none;
     color: $text-color;
-
-    .icon {
-      width: 2em;
-      height: 2em;
-      font-size: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
     &.router-link-active {
       color: $active-text-color;
@@ -52,9 +68,20 @@ $active-text-color: #f1ece4;
   .title {
     padding: 1.5rem 1.25rem;
 
-    h1 {
-      font-size: 19px;
-      margin: 0;
+    .titles {
+      width: 9em;
+
+      h1 {
+        font-size: 19px;
+        margin: 0;
+      }
+
+      p {
+        color: #90b890;
+        text-transform: uppercase;
+        font-size: .55em;
+        letter-spacing: .3em;
+      }
     }
   }
 
@@ -96,6 +123,8 @@ $active-text-color: #f1ece4;
     width: 100%;
     padding: 1rem 1.25rem;
     background: $background-color;
+
+    p { display: none }
 
     h1 {
       font-size: 1.1rem;
