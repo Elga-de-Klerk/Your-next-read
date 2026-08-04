@@ -1,10 +1,13 @@
-@use "./style.scss";
-
 main {
-  width: calc((var(--columns) * var(--card-width)) + ((var(--columns) - 1) * var(--gap)));
-  margin: auto;
+  margin-left: 220px;
+  max-width: 720px;
+  padding: 3rem 1.5rem 5rem;
+}
 
-  header {
-    margin: 10px;
+@media (max-width: 700px) {
+  main {
+    margin-left: 0;
+    padding-top: 5rem;
+    padding-bottom: 5.5rem;
   }
 }

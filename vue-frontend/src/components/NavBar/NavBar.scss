@@ -1,49 +1,106 @@
 @use "../../style.scss";
 
 .sidebar {
-  height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
   display: flex;
   flex-direction: column;
-  width: var(--side-menu-open-width);
+  background: var(--card);
+  border-right: 1px solid var(--line);
+  z-index: 10;
+}
 
-  &.collapsed {
-    width: var(--side-menu-closed-width);
+.title {
+  padding: 1.5rem 1.25rem;
 
-    .label {
-      display: none;
+  h1 {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.menu-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-left: 3px solid transparent;
+
+  &.router-link-active {
+    color: var(--wine);
+    border-left-color: var(--wine);
+    background: var(--paper);
+  }
+
+  .material-symbols-outlined {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    position: static;
+    display: contents;
+  }
+
+  .title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    border-right: none;
+    z-index: 10;
+
+    h1 {
+      font-size: 1.1rem;
     }
   }
 
   .menu {
-    flex: 1;
-    display: flex;
-    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    z-index: 10;
 
-    a {
-      text-decoration: none;
-    }
-  }
-
-  .menu-item {
-    font-size: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    padding: 1rem;
-
-    &.router-link-active {
-      color: var(--wine);
+    ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0;
     }
 
-    &.nav-menu-button {
-      background: none;
-      border: none;
-      cursor: pointer;
+    .menu-item a {
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.4rem 0.75rem;
+      border-left: none;
+
+      &.router-link-active {
+        background: none;
+      }
+
+      .label {
+        font-size: 0.65rem;
+      }
     }
   }
 }
